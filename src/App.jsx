@@ -2,6 +2,7 @@ import React from 'react'
 import { Sidebar } from './components/Sidebar'
 import {Player} from './components/Player'
 import './index.css'; // <-- for Tailwind
+import { Display } from './components/Display';
 
 const App = () => {
   return (
@@ -11,7 +12,7 @@ const App = () => {
     <div className="h-[90%] flex">
        
       <Sidebar />
-    
+      <Display/>
       </div>
       <div className='w-[100%]'> 
             <Player/>
@@ -25,4 +26,4 @@ const App = () => {
   )
 }
 
-export default App
+export default App;
