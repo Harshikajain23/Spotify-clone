@@ -82,35 +82,40 @@ export const albumsData = [
         name: "Top 50 India",
         image: img9,
         desc:"Your weekly update of the most played tracks",
-        bgColor:"#22543d"
+        bgColor:"#22543d",
+        playCount: 0
     },
     {   
         id:2,
         name: "Trending India",
         image: img10,
         desc:"Your weekly update of the most played tracks",
-        bgColor:"#742a2a"
+        bgColor:"#742a2a",
+        playCount: 0
     },
     {   
         id:3,
         name: "Trending Global",
         image: img16,
         desc:"Your weekly update of the most played tracks",
-        bgColor:"#44337a"
+        bgColor:"#44337a",
+        playCount: 0
     },
     {   
         id:4,
         name: "Mega Hits",
         image: img11,
         desc:"Your weekly update of the most played tracks",
-        bgColor:"#234e52"
+        bgColor:"#234e52",
+        playCount: 0
     },
     {   
         id:5,
         name: "Happy Favorites",
         image: img15,
         desc:"Your weekly update of the most played tracks",
-        bgColor:"#744210"
+        bgColor:"#744210",
+        playCount: 0
     }
 ]
 
@@ -121,7 +126,8 @@ export const songsData = [
         image: img1,
         file:song1,
         desc:"Put a smile on your face with these happy tunes",
-        duration:"3:00"
+        duration:"3:00",
+        playCount: 0
     },
     {
         id:1,
@@ -129,7 +135,8 @@ export const songsData = [
         image: img2,
         file:song2,
         desc:"Put a smile on your face with these happy tunes",
-        duration:"2:20"
+        duration:"2:20",
+        playCount: 0
     },
     {
         id:2,
@@ -137,7 +144,8 @@ export const songsData = [
         image: img3,
         file:song3,
         desc:"Put a smile on your face with these happy tunes",
-        duration:"2:32"
+        duration:"2:32",
+        playCount: 0
     },
     {
         id:3,
@@ -145,7 +153,8 @@ export const songsData = [
         image: img4,
         file:song1,
         desc:"Put a smile on your face with these happy tunes",
-        duration:"2:50"
+        duration:"2:50",
+        playCount: 0
     },
     {
         id:4,
@@ -153,7 +162,8 @@ export const songsData = [
         image: img5,
         file:song2,
         desc:"Put a smile on your face with these happy tunes",
-        duration:"3:10"
+        duration:"3:10",
+        playCount: 0
     },
     {
         id:5,
@@ -161,7 +171,8 @@ export const songsData = [
         image: img14    ,
         file:song3,
         desc:"Put a smile on your face with these happy tunes",
-        duration:"2:45"
+        duration:"2:45",
+        playCount: 0
     },
     {
         id:6,
@@ -169,7 +180,8 @@ export const songsData = [
         image: img7,
         file:song1,
         desc:"Put a smile on your face with these happy tunes",
-        duration:"2:18"
+        duration:"2:18",
+        playCount: 0
     },
     {
         id:7,
@@ -177,6 +189,7 @@ export const songsData = [
         image: img12,
         file:song2,
         desc:"Put a smile on your face with these happy tunes",
-        duration:"2:35"
+        duration:"2:35",
+        playCount: 0
     }
 ]
