@@ -1,0 +1,6 @@
+POST http://localhost:4000/api/song/remove
+Content-Type: application/json
+
+{
+  "id": "691a1f0e3f2952f9d620b8d3"
+}
