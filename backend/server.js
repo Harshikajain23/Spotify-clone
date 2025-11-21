@@ -1,27 +1,48 @@
-import express from 'express'
-import cors from 'cors'
-import 'dotenv/config' 
+import express from 'express';
+import cors from 'cors';
+import 'dotenv/config';
 import songRouter from './src/routes/songRoute.js';
+import albumRouter from './src/routes/albumRoute.js';
 import connectDB from './src/config/mongodb.js';
 import connectCloudinary from './src/config/cloudinary.js';
-import albumRouter from './src/routes/albumRoute.js';
-
 
 // app config
 const app = express();
 const port = process.env.PORT || 4000;
+
+// connect DB & Cloudinary
 connectDB();
 connectCloudinary();
 
+// ====== CORS setup for multiple frontends ======
+const allowedOrigins = [
+  'https://spotify-clone-frontend-hyn0.onrender.com',
+  'https://spotify-clone-admin-528z.onrender.com'
+];
 
-// middlewares
+app.use(cors({
+  origin: function(origin, callback) {
+    // allow requests with no origin (like Postman)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.indexOf(origin) === -1) {
+      const msg = `The CORS policy for this site does not allow access from the specified Origin.`;
+      return callback(new Error(msg), false);
+    }
+    return callback(null, true);
+  },
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE']
+}));
+
+// ====== Middlewares ======
 app.use(express.json());
-app.use(cors());
 
-//initialising routes
+// ====== Routes ======
+app.use("/api/song", songRouter);
+app.use('/api/album', albumRouter);
 
-app.use("/api/song", songRouter)
-app.use('/api/album', albumRouter)
-app.get('/all', (req, res)=> res.send("API working") )
+// Test route
+app.get('/all', (req, res) => res.send("API working"));
 
-app.listen(port, ()=>console.log(`Server started on ${port}`) )
+// ====== Start server ======
+app.listen(port, () => console.log(`Server started on ${port}`));
