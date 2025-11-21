@@ -7,7 +7,7 @@ import { toast } from 'react-toastify';
 export const AddAlbum = () => {
 
   const [image, setImage] = useState(null)
-  const [color, setColor] = useState("#ffffff");
+  const [colour, setColour] = useState("#ffffff");
   const [name, setName] = useState("");
   const [desc, setDesc] = useState("");
   const [loading, setLoading] = useState(false);
@@ -22,9 +22,10 @@ export const AddAlbum = () => {
       formData.append('name', name);
       formData.append('desc', desc);
       formData.append('image', image);
-      formData.append('bgColor', color);
+      formData.append('bgColor', colour);
 
-      const response = await axios.post(`${url}/api/album/add`, formData);
+      const response = await axios.post(`${url}/api/album/add`, formData,{
+  headers: { "Content-Type": "multipart/form-data" }});
 
       if(response.data.success){
         toast.success("Album added")
@@ -74,7 +75,7 @@ export const AddAlbum = () => {
 
           <div className='flex flex-col gap-3 '>
             <p>Background Color</p>
-            <input className="cursor-pointer" onChange={(e)=> setColor(e.target.value)} value={color} type="color"  />
+            <input className="cursor-pointer" onChange={(e)=> setColour(e.target.value)} value={colour} type="color"  />
           </div>
 
             <div className="flex justify- items-center">
