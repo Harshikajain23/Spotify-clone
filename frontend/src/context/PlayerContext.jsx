@@ -77,24 +77,43 @@ export const PlayerContextProvider = (props) => {
       (e.nativeEvent.offsetX / seekBg.current.offsetWidth) * audioRef.current.duration;
   };
 
-  const getSongsData = async () => {
-    try {
-      const response = await axios.get(`${url}/api/song/list`);
+const getSongsData = async () => {
+  try {
+    const response = await axios.get(`${url}/api/song/list`);
+
+    // Check if songs exist
+    if (response.data && response.data.songs && response.data.songs.length > 0) {
       setSongsData(response.data.songs);
       setTrack(response.data.songs[0]);
-    } catch (error) {
-      console.log("Error fetching songs:", error);
+    } else {
+      console.log("No songs returned from backend:", response.data);
+      setSongsData([]);
+      setTrack(null); // avoid crash
     }
-  };
+  } catch (error) {
+    console.log("Error fetching songs:", error);
+    setSongsData([]);
+    setTrack(null); // avoid crash
+  }
+};
 
-  const getAlbumsData = async () => {
-    try {
-      const response = await axios.get(`${url}/api/album/list`);
+
+const getAlbumsData = async () => {
+  try {
+    const response = await axios.get(`${url}/api/album/list`);
+
+    if (response.data && response.data.albums && response.data.albums.length > 0) {
       setAlbumsData(response.data.albums);
-    } catch (error) {
-      console.log("Error fetching albums:", error);
+    } else {
+      console.log("No albums returned from backend:", response.data);
+      setAlbumsData([]);
     }
-  };
+  } catch (error) {
+    console.log("Error fetching albums:", error);
+    setAlbumsData([]);
+  }
+};
+
 
   useEffect(() => {
     getSongsData();
