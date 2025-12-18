@@ -1,6 +1,6 @@
 import express from 'express';
 import upload from "../controllers/middleware/multer.js";
-import { addSong, listSong, removeSong, increasePlayCount } from "../controllers/songContoller.js";
+import { addSong, listSong, removeSong, increasePlayCount } from "../controllers/songController.js";
 
 const songRouter = express.Router();
 
