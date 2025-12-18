@@ -33,4 +33,5 @@ app.use("/api/album", albumRouter);
 // ===== Test route =====
 app.get("/all", 
         (req, res) => res.send("API working")); 
-// ===== Start server ===== app.listen(port, () => console.log(Server started on port ${port}));
+// ===== Start server ===== 
+app.listen(port, () => console.log(Server started on port ${port}));
