@@ -90,7 +90,7 @@
 
 
 import { v2 as cloudinary } from "cloudinary";
-import songModel from "../models/songModel.js";
+// import songModel from "../models/songModel.js";
 
 // ADD SONG
 export const addSong = async (req, res) => {
