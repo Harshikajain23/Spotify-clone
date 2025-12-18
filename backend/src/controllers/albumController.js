@@ -56,7 +56,7 @@
 // export {addAlbum, listAlbum, removeAlbum}
 
 import { v2 as cloudinary } from "cloudinary";
-import albumModel from "../models/albumModel.js";
+import albumModel from "./models/albumModel.js";
 
 // ADD ALBUM
 export const addAlbum = async (req, res) => {
