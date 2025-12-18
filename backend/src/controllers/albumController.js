@@ -37,7 +37,7 @@ const listAlbum = async(req, res) =>{
         res.json({success:true, albums: allAlbums})
     }
     catch(error){
-        res.join({success: false})
+        res.json({success: false})
     }
 }
 
