@@ -1,3 +1,4 @@
+
 import React from 'react'
 import { assets } from '../assets/assets'
 import { useNavigate } from 'react-router-dom'
@@ -19,7 +20,9 @@ export const Navbar = () => {
         <div className='flex items-center gap-4'>
               <a
           href="https://spotify-clone-admin-528z.onrender.com"
-          className="bg-white text-black text-[15px] px-4 py-1 rounded-2xl hidden md:block cursor-pointer hover:bg-gray-200 transition-colors">
+          className="bg-white text-black text-[15px] px-4 py-1 rounded-2xl hidden md:block cursor-pointer hover:bg-gray-200 transition-colors" 
+                  target="_blank"   // optional: opens in a new tab
+  rel="noopener noreferrer">
               Go to Admin Panel
             </a>
             <p className='bg-purple-500 text-black w-7 h-7 rounded-full flex items-center justify-center'>D</p>
