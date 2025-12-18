@@ -20,19 +20,16 @@ const allowedOrigins = [
   'https://spotify-clone-admin-528z.onrender.com'
 ];
 
-app.use(cors({
-  origin: function(origin, callback) {
-    // allow requests with no origin (like Postman)
-    if (!origin) return callback(null, true);
-    if (allowedOrigins.indexOf(origin) === -1) {
-      const msg = `The CORS policy for this site does not allow access from the specified Origin.`;
-      return callback(new Error(msg), false);
-    }
-    return callback(null, true);
-  },
-  credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE']
-}));
+app.use(
+  cors({
+    origin: [
+      "https://spotify-clone-frontend-hyn0.onrender.com",
+      "https://spotify-clone-admin-528z.onrender.com"
+    ],
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE']
+  })
+);
 
 // ====== Middlewares ======
 app.use(express.json());
