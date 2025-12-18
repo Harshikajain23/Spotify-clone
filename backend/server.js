@@ -15,10 +15,7 @@ connectDB();
 connectCloudinary();
 
 // ===== CORS setup for frontend domains =====
-const allowedOrigins = [
-  "https://spotify-clone-frontend-hyn0.onrender.com",
-  "https://spotify-clone-admin-528z.onrender.com",
-];
+ origin: "*",
 
 app.use(
   cors({
@@ -33,7 +30,7 @@ app.use(
       }
       return callback(null, true);
     },
-    credentials: true,
+    credentials: false,
     methods: ["GET", "POST", "PUT", "DELETE"],
   })
 );
