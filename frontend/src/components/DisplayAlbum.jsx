@@ -45,10 +45,10 @@ export const DisplayAlbum = ({album}) => {
             
             <Navbar />
             <div className="mt-10 flex gap-8 flex-col md:flex-row md:items-end">
-                <img className="w-48 rounded" src={albumData.image} alt="" />
+                <img className="w-40 md:w-48 rounded" src={albumData.image} alt="" />
                 <div className="flex flex-col">
                     <p>Playlist</p>
-                    <h2 className="text-5xl font-bold mb-4 md:text-7xl">{albumData.name}</h2>
+                    <h2 className="text-3xl md:text-5xl lg:text-7xl font-bold mb-3">{albumData.name}</h2>
                     <h4>{albumData.name}</h4>
                     <p className="mt-1 mr-5">
                         <img className="inline-block w-5 gap-4" src={assets.spotify_logo} alt="" />
@@ -60,8 +60,10 @@ export const DisplayAlbum = ({album}) => {
                 </div>
             </div>
 
-            <div className="grid mt-10 mb-4 text-[#a7a7a7]  grid-cols-[2fr_1fr_1fr_1fr_0.5fr]">
-                <p className="w-[300px]"> <b className="m-4">#</b> Title</p>
+            <div className="grid mt-10 mb-4 text-[#a7a7a7]  grid-cols-[1fr_auto]
+sm:grid-cols-[2fr_1fr_auto]
+lg:grid-cols-[2fr_1fr_1fr_1fr_0.5fr]">
+                <p className="flex items-center gap-4 overflow-hidden]"> <b className="m-4">#</b> Title</p>
                 <p className="ml-2">Album</p>
                 <p className="hidden sm:block">Date Added</p>
                 <p className="hidden lg:block mt-0.5">Times Played</p>
@@ -74,13 +76,15 @@ export const DisplayAlbum = ({album}) => {
                 <div
                     onClick={() => playWithId(item._id)}
                     key={index}
-                    className="grid p-2 item-center text-[#a7a7a7] hover:bg-[#ffffff2b] cursor-pointer  grid-cols-[2fr_1fr_1fr_1fr_0.5fr]"
+                    className="grid p-2 item-center text-[#a7a7a7] hover:bg-[#ffffff2b] cursor-pointer  grid-cols-[1fr_auto]
+sm:grid-cols-[2fr_1fr_auto]
+lg:grid-cols-[2fr_1fr_1fr_1fr_0.5fr]"
                 
                 >
                     <p className="text-white w-[300px]">
                         <b className="mr-4 text-[#a7a7a7]">{index + 1}</b>
                         <img className="inline w-10 mr-5" src={item.image} alt="" />
-                        {item.name}
+                        <span className="truncate">{item.name}</span>
                     </p>
                     <p className="text-[15px]">{albumData.name}</p>
                     <p className="text-[15px] hidden sm:block">5 days ago</p>
