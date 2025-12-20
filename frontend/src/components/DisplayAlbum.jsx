@@ -63,11 +63,12 @@ export const DisplayAlbum = ({album}) => {
             <div className="grid mt-10 mb-4 text-[#a7a7a7]  grid-cols-[1fr_auto]
 sm:grid-cols-[2fr_1fr_auto]
 lg:grid-cols-[2fr_1fr_1fr_1fr_0.5fr]">
-                <p className="flex items-center gap-4 overflow-hidden"> <b className="m-4">#</b> Title</p>
+                <p className="flex items-center gap-4 overflow-hidden"> <b className="m-4">#</b> Title
                <p className="hidden lg:block ml-2">Album</p>
                 <p className="hidden lg:block">Date Added</p>
                 <p className="hidden lg:block mt-0.5">Times Played</p>
                 <img className="m-auto w-4" src={assets.clock_icon} alt="" />
+                </p>
             </div>
 
             <hr />
