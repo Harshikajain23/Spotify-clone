@@ -64,9 +64,9 @@ export const DisplayAlbum = ({album}) => {
 sm:grid-cols-[2fr_1fr_auto]
 lg:grid-cols-[2fr_1fr_1fr_1fr_0.5fr]">
                 <p className="flex items-center gap-4 overflow-hidden"> <b className="m-4">#</b> Title </p>
-               <p className="flex itens-center hidden lg:block ml-2">Album</p>
-                <p className="hidden lg:block">Date Added</p>
-                <p className="hidden lg:block mt-0.5">Times Played</p>
+               <p className="items-center hidden lg:flex ml-2">Album</p>
+                <p className="items-center hidden lg:flex">Date Added</p>
+                <p className="hidden items-center lg:flex mt-0.5">Times Played</p>
                 <img className="m-auto w-4" src={assets.clock_icon} alt="" />
                
             </div>
@@ -84,7 +84,7 @@ lg:grid-cols-[2fr_1fr_1fr_1fr_0.5fr]"
                 >
                     <p className="flex items-center gap-4 text-white overflow-hidden">
                         <b className="mr-4 text-[#a7a7a7]">{index + 1}</b>
-                        <img className="hidden lg:block w-10 mr-5" src={item.image} alt="" />
+                        <img className=" w-10 mr-5" src={item.image} alt="" />
                         <span className="truncate">{item.name}</span>
                     </p>
                     <p className="hidden lg:block text-sm truncate">
