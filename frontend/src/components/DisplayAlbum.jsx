@@ -76,20 +76,24 @@ lg:grid-cols-[2fr_1fr_1fr_1fr_0.5fr]">
                 <div
                     onClick={() => playWithId(item._id)}
                     key={index}
-                    className="grid p-2 item-center text-[#a7a7a7] hover:bg-[#ffffff2b] cursor-pointer  grid-cols-[1fr_auto]
+                    className="grid p-2 items-center text-[#a7a7a7] hover:bg-[#ffffff2b] cursor-pointer  grid-cols-[1fr_auto]
 sm:grid-cols-[2fr_1fr_auto]
 lg:grid-cols-[2fr_1fr_1fr_1fr_0.5fr]"
                 
                 >
-                    <p className="text-white w-[300px]">
+                    <p className="flex items-center gap-4 text-white overflow-hidden">
                         <b className="mr-4 text-[#a7a7a7]">{index + 1}</b>
                         <img className="inline w-10 mr-5" src={item.image} alt="" />
                         <span className="truncate">{item.name}</span>
                     </p>
-                    <p className="text-[15px]">{albumData.name}</p>
-                    <p className="text-[15px] hidden sm:block">5 days ago</p>
-                    <p className="text-[15px]">{item.playCount || 0}</p>
-                    <p className="text-[15px] text-center">{item.duration}</p>
+                    <p className="hidden sm:block text-sm truncate">
+  {albumData.name}
+</p>
+                    <p className="hidden lg:block text-sm">5 days ago</p>
+                    <p className="hidden lg:block text-sm text-center">
+  {item.playCount || 0}
+</p>
+                   <p className="text-sm text-right">{item.duration}</p>
                 </div>
             ))}
         </div>
