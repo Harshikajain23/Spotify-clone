@@ -16,7 +16,7 @@ export const Player = () => {
         <p>{track.desc.slice(0, 20)}</p>
         </div>
       </div>
-      <div className="flex flex-col items-center gap-1 m-auto ml-65">
+      <div className="flex flex-col items-center w-full lg:w-2/4">
         <div className="flex gap-4">
           <img className="w-4 cursor-pointer" src={assets.shuffle_icon} />
           <img onClick={previous} className="w-4 cursor-pointer" src={assets.prev_icon} />
@@ -28,7 +28,7 @@ export const Player = () => {
         </div>
         <div className="flex items-center gap-5">
           <p>{time.currentTime.minute}:{time.currentTime.second}</p>
-          <div onClick={seekSong} ref={seekBg} className="w-[60vw] max-w-[500px] bg-gray-300 rounded-full cursor-pointer">
+          <div onClick={seekSong} ref={seekBg} className="flex-1 bg-gray-300 rounded-full cursor-pointer">
             <hr ref={seekBar} className="h-1 border-none w-0 bg-green-800 rounded-full"></hr>
           </div>
           <p>{time.totalTime.minute}:{time.totalTime.second}</p>
