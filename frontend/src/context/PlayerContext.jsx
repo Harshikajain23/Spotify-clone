@@ -9,7 +9,7 @@ export const PlayerContextProvider = (props) => {
   const seekBar = useRef();
 
   const url = "https://spotify-clone-r2qx.onrender.com";
-
+  const lastPlayedIdRef = useRef(null);
   const [songsData, setSongsData] = useState([]);
   const [albumsData, setAlbumsData] = useState([]);
   const [track, setTrack] = useState(null);
@@ -30,15 +30,34 @@ export const PlayerContextProvider = (props) => {
   };
 
 
-  const playWithId = async (id) => {
-  // 1️⃣ Find the selected song
-  const song = songsData.find((item) => item._id === id);
-  if (!song) return;
+ const playWithId = async (id) => {
 
-  // 2️⃣ Set current track
+  // ✅ increase count ONLY if new song
+  if (lastPlayedIdRef.current !== id) {
+
+    // update UI immediately
+    setSongsData((prev) =>
+      prev.map((item) =>
+        item._id === id
+          ? { ...item, playCount: (item.playCount || 0) + 1 }
+          : item
+      )
+    );
+
+    // update backend
+    try {
+      await axios.put(`/api/songs/play/${id}`);
+    } catch (err) {
+      console.log("Play count error:", err);
+    }
+
+    lastPlayedIdRef.current = id;
+  }
+
+  // set current track
+  const song = songsData.find((item) => item._id === id);
   setTrack(song);
 
-  // 3️⃣ Play audio
   try {
     await audioRef.current.play();
     setPlayStatus(true);
@@ -46,6 +65,7 @@ export const PlayerContextProvider = (props) => {
     console.log("Audio play error:", err);
   }
 };
+
 
   const previous = () => {
     songsData.forEach((item, index) => {
