@@ -9,6 +9,10 @@ const songSchema = new mongoose.Schema({
     file: {type: String, required: true},
     duration: {type: String, required: true},
 
+ {
+    timestamps: true 
+  }
+
 
 })
 
