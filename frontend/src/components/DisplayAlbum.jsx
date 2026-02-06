@@ -93,6 +93,7 @@ lg:grid-cols-[2fr_1fr_1fr_1fr_0.5fr]"
   {albumData.name}
 </p>
                     <p className="hidden lg:block text-sm">{timeAgo(item.createdAt)}</p>
+                    console.log("createdAt:", item.createdAt, "converted:", new Date(item.createdAt));
                     <p className="hidden lg:block text-sm text-center">
   {item.playCount || 0}
 </p>
