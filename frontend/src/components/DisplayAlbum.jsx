@@ -33,6 +33,29 @@ export const DisplayAlbum = ({album}) => {
 
     if (!albumData) return null;
 
+    // utils/formatTime.js
+export const timeAgo = (date) => {
+  const now = new Date();
+  const seconds = Math.floor((now - new Date(date)) / 1000);
+
+  let interval = Math.floor(seconds / 31536000);
+  if (interval > 1) return interval + " years ago";
+
+  interval = Math.floor(seconds / 2592000);
+  if (interval > 1) return interval + " months ago";
+
+  interval = Math.floor(seconds / 86400);
+  if (interval > 1) return interval + " days ago";
+
+  interval = Math.floor(seconds / 3600);
+  if (interval > 1) return interval + " hours ago";
+
+  interval = Math.floor(seconds / 60);
+  if (interval > 1) return interval + " minutes ago";
+
+  return "Just now";
+};
+
   
 
     return  (
@@ -90,7 +113,7 @@ lg:grid-cols-[2fr_1fr_1fr_1fr_0.5fr]"
                     <p className="hidden lg:block text-sm truncate">
   {albumData.name}
 </p>
-                    <p className="hidden lg:block text-sm">{moment(item.createdAt).fromNow()}</p>
+                    <p className="hidden lg:block text-sm">{timeAgo(item.createdAt)}</p>
                     <p className="hidden lg:block text-sm text-center">
   {item.playCount || 0}
 </p>
