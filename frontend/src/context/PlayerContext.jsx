@@ -31,26 +31,21 @@ export const PlayerContextProvider = (props) => {
 
 
   const playWithId = async (id) => {
-    // 1️⃣ Update local songsData so UI refreshes
-    const updatedSongs = songsData.map((item) =>
-      item._id === id ? { ...item, playCount: (item.playCount || 0) + 1 } : item
-    );
-    setSongsData(updatedSongs);
+  // 1️⃣ Find the selected song
+  const song = songsData.find((item) => item._id === id);
+  if (!song) return;
 
-    // 2️⃣ Set the current track
-    const song = updatedSongs.find((item) => item._id === id);
-    setTrack(song);
+  // 2️⃣ Set current track
+  setTrack(song);
 
-    // 3️⃣ Play the audio
-    try {
-      await audioRef.current.play();
-      setPlayStatus(true);
-    } catch (err) {
-      // swallow autoplay errors
-      console.log("Audio play error:", err);
-    }
-  };
- 
+  // 3️⃣ Play audio
+  try {
+    await audioRef.current.play();
+    setPlayStatus(true);
+  } catch (err) {
+    console.log("Audio play error:", err);
+  }
+};
 
   const previous = () => {
     songsData.forEach((item, index) => {
@@ -139,6 +134,18 @@ const getAlbumsData = async () => {
       });
     };
   }, [audioRef]);
+
+  useEffect(() => {
+  if (!audioRef.current || !track?._id) return;
+
+  audioRef.current.onplay = async () => {
+    try {
+      await axios.post(`${url}/api/song/increase-play/${track._id}`);
+    } catch (error) {
+      console.log("Play count update failed", error);
+    }
+  };
+}, [track]);
 
   return (
     <PlayerContext.Provider
