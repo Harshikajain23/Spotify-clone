@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+0import React, { useContext, useEffect, useState } from 'react';
 import { Navbar } from './Navbar';
 import { useParams } from 'react-router-dom';
 import { assets } from '../assets/assets';
@@ -95,7 +95,7 @@ lg:grid-cols-[2fr_1fr_1fr_1fr_0.5fr]"
 </p>
                     <p className="hidden lg:block text-sm">{timeAgo(item.createdAt)}</p>
                     
-                    <p className="hidden lg:block text-sm text-center ml-[-2px]">
+                    <p className="hidden lg:block text-sm text-center ml-[-20px]">
   {item.playCount || 0}
 </p>
                    <p className="text-sm text-right">{item.duration}</p>
