@@ -4,6 +4,21 @@ import axios from 'axios';
 import { url } from '../App';
 import { toast } from 'react-toastify';
 
+const getAudioDuration = (file) => {
+  return new Promise((resolve) => {
+    const audio = document.createElement("audio");
+    audio.src = URL.createObjectURL(file);
+
+    audio.onloadedmetadata = () => {
+      const totalSeconds = Math.floor(audio.duration);
+      const minutes = Math.floor(totalSeconds / 60);
+      const seconds = totalSeconds % 60;
+
+      resolve(`${minutes}:${seconds.toString().padStart(2, "0")}`);
+    };
+  });
+};
+
 export const AddSong = () => {
 
   const [image,setImage] = useState(false);
