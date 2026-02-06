@@ -28,10 +28,14 @@ export const AddSong = () => {
   const [album, setAlbum] = useState("none");
   const [loading, setLoading] = useState(false);
   const [albumData, setAlbumData] = useState([]);
+
+
+  
   const onSubmitHandler = async (e)=> {
     e.preventDefault();
     setLoading(true)
     try{
+      const duration = await getAudioDuration(song);
       const formData = new FormData();
 
       formData.append('name', name);
@@ -39,6 +43,7 @@ export const AddSong = () => {
       formData.append('image', image);
       formData.append('audio', song);
       formData.append('album', album);
+      formData.append('duration', duration);
 
       const response = await axios.post(`${url}/api/song/add`, formData) ;
 
