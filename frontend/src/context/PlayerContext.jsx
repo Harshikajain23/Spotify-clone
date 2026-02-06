@@ -30,40 +30,43 @@ export const PlayerContextProvider = (props) => {
   };
 
 
- const playWithId = async (id) => {
+const playWithId = async (id) => {
+  // 🚫 SAME SONG → just play/pause, NO COUNT
+  if (track?._id === id) {
+    if (playStatus) {
+      audioRef.current.pause();
+      setPlayStatus(false);
+    } else {
+      audioRef.current.play();
+      setPlayStatus(true);
+    }
+    return;
+  }
 
-  // ✅ increase count ONLY if new song
-  if (lastPlayedIdRef.current !== id) {
+  // ✅ NEW SONG → count ONCE
+  try {
+    await axios.post(`${url}/api/song/increase-play/${id}`);
 
-    // update UI immediately
     setSongsData((prev) =>
-      prev.map((item) =>
-        item._id === id
-          ? { ...item, playCount: (item.playCount || 0) + 1 }
-          : item
+      prev.map((song) =>
+        song._id === id
+          ? { ...song, playCount: (song.playCount || 0) + 1 }
+          : song
       )
     );
 
-    // update backend
-    try {
-      await axios.put(`/api/songs/play/${id}`);
-    } catch (err) {
-      console.log("Play count error:", err);
-    }
-
     lastPlayedIdRef.current = id;
+  } catch (err) {
+    console.log("Play count error", err);
   }
 
-  // set current track
+  // 🎵 switch track
   const song = songsData.find((item) => item._id === id);
   setTrack(song);
 
-  try {
-    await audioRef.current.play();
-    setPlayStatus(true);
-  } catch (err) {
-    console.log("Audio play error:", err);
-  }
+  audioRef.current.src = song.file; // IMPORTANT
+  await audioRef.current.play();
+  setPlayStatus(true);
 };
 
 
