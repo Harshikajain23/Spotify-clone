@@ -6,7 +6,7 @@ import { PlayerContext } from '../context/PlayerContext';
 import { timeAgo } from './formatTime';
 
 export const DisplayAlbum = ({album}) => {
-    console.log("createdAt:", item.createdAt, "converted:", new Date(item.createdAt));
+    console.log("createdAt:", album.createdAt, "converted:", new Date(album.createdAt));
     const { id } = useParams();
     const { playWithId, albumsData, songsData } = useContext(PlayerContext);
 
