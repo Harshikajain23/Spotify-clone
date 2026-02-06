@@ -138,14 +138,35 @@ const getAlbumsData = async () => {
   useEffect(() => {
   if (!audioRef.current || !track?._id) return;
 
-  audioRef.current.onplay = async () => {
+  const audio = audioRef.current;
+
+  const handlePlay = async () => {
     try {
-      await axios.post(`${url}/api/song/increase-play/${track._id}`);
+      const res = await axios.post(
+        `${url}/api/song/increase-play/${track._id}`
+      );
+
+      //  Update UI instantly (NO refresh needed)
+      setSongsData((prevSongs) =>
+        prevSongs.map((song) =>
+          song._id === track._id
+            ? { ...song, playCount: res.data.playCount }
+            : song
+        )
+      );
+
     } catch (error) {
       console.log("Play count update failed", error);
     }
   };
+
+  audio.addEventListener("play", handlePlay);
+
+  return () => {
+    audio.removeEventListener("play", handlePlay);
+  };
 }, [track]);
+
 
   return (
     <PlayerContext.Provider
