@@ -27,9 +27,11 @@ export const addSong = async (req, res) => {
       resource_type: "image",
     });
 
-    const duration = `${Math.floor(audioUpload.duration / 60)}:${Math.floor(
-      audioUpload.duration % 60
-    )}`;
+   const totalSeconds = Math.floor(audioUpload.duration || 0);
+   const minutes = Math.floor(totalSeconds / 60);
+   const seconds = totalSeconds % 60;
+
+const duration = `${minutes}:${seconds.toString().padStart(2, "0")}`;
 
     const song = new songModel({
       name,
