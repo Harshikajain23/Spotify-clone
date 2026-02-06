@@ -82,7 +82,7 @@ lg:grid-cols-[2fr_1fr_1fr_1fr_0.5fr]">
                     key={index}
                     className="grid p-2 items-center text-[#a7a7a7] hover:bg-[#ffffff2b] cursor-pointer  grid-cols-[1fr_auto]
 sm:grid-cols-[2fr_1fr_auto]
-lg:grid-cols-[2fr_1fr_1fr_1fr_0.5fr]"
+lg:grid-cols-[2fr_1fr_0.5fr_1fr_0.5fr]"
                 
                 >
                     <p className="flex items-center gap-4 text-white overflow-hidden">
