@@ -76,15 +76,22 @@ export const increasePlayCount = async (req, res) => {
   try {
     const { id } = req.params;
 
-    const song = await songModel.findById(id);
-    if (!song) return res.status(404).json({ message: "Song not found" });
+    console.log("🎯 Increase play count for ID:", id);
 
-    song.playCount = (song.playCount || 0) + 1;
-    await song.save();
+    const song = await songModel.findByIdAndUpdate(
+      id,
+      { $inc: { playCount: 1 } },
+      { new: true }
+    );
+
+    if (!song) {
+      return res.status(404).json({ message: "Song not found" });
+    }
 
     res.json({ success: true, playCount: song.playCount });
   } catch (error) {
-    res.status(500).json({ message: "Error updating play count" });
+    console.error("❌ Play count error:", error);
+    res.status(500).json({ message: error.message });
   }
 };
 
