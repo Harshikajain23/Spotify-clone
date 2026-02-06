@@ -20,7 +20,7 @@ export const addSong = async (req, res) => {
     const playCount = req.body.playCount || 0;
 
     const audioUpload = await cloudinary.uploader.upload(audioFile.path, {
-      resource_type: "raw",
+      resource_type: "video",
     });
 
     const imageUpload = await cloudinary.uploader.upload(imageFile.path, {
