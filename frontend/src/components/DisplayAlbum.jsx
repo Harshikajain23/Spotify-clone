@@ -90,7 +90,7 @@ lg:grid-cols-[2fr_1fr_1fr_1fr_0.5fr]"
                     <p className="hidden lg:block text-sm truncate">
   {albumData.name}
 </p>
-                    <p className="hidden lg:block text-sm">5 days ago</p>
+                    <p className="hidden lg:block text-sm">{moment(item.createdAt).fromNow()}</p>
                     <p className="hidden lg:block text-sm text-center">
   {item.playCount || 0}
 </p>
