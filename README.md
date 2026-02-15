@@ -1,4 +1,4 @@
-# ![Spotify Clone](https://via.placeholder.com/800x200.png?text=Spotify+Clone)
+# ![Spotify Clone](spotify-1.JPG)
 
 # Spotify Clone
 
