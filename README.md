@@ -1,20 +1,18 @@
-# ![Spotify Clone](spotify-1.JPG)
+# Spotify Clone – Music Streaming App
 
-# Spotify Clone
+Spotify Clone is a full-stack music streaming application built with **MERN stack** and **Tailwind CSS**. Users can play, pause, skip tracks, and admins can upload music and albums. The app also tracks how many times each track is played.
 
-A **Spotify-inspired music web application** built with **MERN stack** and **Tailwind CSS**, featuring music playback, admin-uploaded albums, and track play counts.
-
----
-
-##  Live Demo
-
-[Check Live App Here](https://spotify-clone-frontend-hyn0.onrender.com)
-
-[Click to wake up backend](https://spotify-clone-backend-knb2.onrender.com)
+![Spotify Clone Screenshot](spotify-1.JPG)
 
 ---
 
-##  Features
+## Live Demo
+[Frontend Live Link](https://spotify-clone-frontend-hyn0.onrender.com)  
+[Backend Wake-Up Link](https://spotify-clone-backend-knb2.onrender.com)
+
+---
+
+## Features
 
 - Play, pause, next, and previous tracks  
 - Admin panel to upload music and albums  
@@ -23,35 +21,65 @@ A **Spotify-inspired music web application** built with **MERN stack** and **Tai
 
 ---
 
-##  Tech Stack
+## Tech Stack
 
-- **Frontend:** React, Tailwind CSS  
-- **Backend:** Node.js, Express  
-- **Database:** MongoDB  
-- **Other:** Axios for API requests  
+### Frontend
+- React.js  
+- Tailwind CSS  
+
+### Backend
+- Node.js  
+- Express.js  
+- MongoDB (for track, album, and user data)  
+
+### Other
+- Axios for API requests  
 
 ---
 
-##  Installation
+## Installation & Setup
 
-1. **Clone the repository**
+### Step 1: Clone the repository
+```bash
+git clone https://github.com/YOUR_USERNAME/spotify-clone.git
+```
+### Step 2: Navigate to the project directory
+```
+cd spotify-clone
+```
+## Step 3: Configure environment variables
 
-2. **Configure environment variables**
+Create a .env file in the server folder:
 
-3. **Run the application**
-   
+```PORT=5000
+MONGO_URI=your_mongodb_uri
+```
+
+## Step 4: Install dependencies
+
+Backend
+```
+cd server
+npm install
+```
+
+Frontend
+```
+cd ../client
+npm install
+```
+## Step 5: Run the application
+
 Start backend
 ```
 cd server
 npm start
 ```
-
 Start frontend
 ```
 cd ../client
 npm start
 ```
-
 
 Frontend runs on: http://localhost:3000
 
