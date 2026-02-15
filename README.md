@@ -45,13 +45,14 @@ git clone https://github.com/Harshikajain23/Spotify-clone.git
 ```
 ### Step 2: Navigate to the project directory
 ```
-cd spotify-clone
+cd Spotify-clone
 ```
 ## Step 3: Configure environment variables
 
 Create a .env file in the server folder:
 
-```PORT=5000
+```
+PORT=5000
 MONGO_URI=your_mongodb_uri
 ```
 
