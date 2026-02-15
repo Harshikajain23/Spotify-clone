@@ -8,7 +8,9 @@ A **Spotify-inspired music web application** built with **MERN stack** and **Tai
 
 ##  Live Demo
 
-[Check Live App Here](YOUR_LIVE_LINK_HERE)
+[Check Live App Here](https://spotify-clone-frontend-hyn0.onrender.com)
+
+[Click to wake up backend](https://spotify-clone-backend-knb2.onrender.com)
 
 ---
 
@@ -48,6 +50,7 @@ MONGO_URI=your_mongodb_uri
 ```
 
 3. **Run the application**
+   
 Start backend
 ```
 cd server
@@ -55,8 +58,10 @@ npm start
 ```
 
 Start frontend
+```
 cd ../client
 npm start
+```
 
 
 Frontend runs on: http://localhost:3000
