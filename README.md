@@ -41,7 +41,7 @@ Spotify Clone is a full-stack music streaming application built with **MERN stac
 
 ### Step 1: Clone the repository
 ```bash
-git clone https://github.com/YOUR_USERNAME/spotify-clone.git
+git clone https://github.com/Harshikajain23/Spotify-clone.git
 ```
 ### Step 2: Navigate to the project directory
 ```
