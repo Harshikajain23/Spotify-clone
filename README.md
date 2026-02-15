@@ -35,19 +35,8 @@ A **Spotify-inspired music web application** built with **MERN stack** and **Tai
 ##  Installation
 
 1. **Clone the repository**
-```bash
-git clone https://github.com/YOUR_USERNAME/spotify-clone.git
-cd spotify-clone
-```
 
 2. **Configure environment variables**
-
-Create a .env file in the server folder:
-
-```
-PORT=5000
-MONGO_URI=your_mongodb_uri
-```
 
 3. **Run the application**
    
